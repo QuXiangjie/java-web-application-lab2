@@ -15,7 +15,6 @@ public class LoginServlet extends HttpServlet {
                          //System.out.println("this is the request="+request);
        //System.out.println("this is the response="+response);
         String url = "/index.html";
-
         // get current action
         String option = request.getParameter("option");
         if (option == null) {
@@ -26,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         if (option.equals("join")) {
             url = "/index.html";    // the "join" page
         }
-        else if (option.equals("add")) {                
+       /* else if (option.equals("add")) {                
             // get parameters from the request
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
@@ -39,7 +38,7 @@ public class LoginServlet extends HttpServlet {
             // set User object in request object and set URL
             request.setAttribute("user", user);
             url = "/thanks.jsp";   // the "thanks" page
-        }
+        }*/
         
         // forward request and response objects to specified URL
         //System.out.println("this is the getServletContext()"+getServletContext());
