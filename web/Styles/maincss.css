@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Diplomata+SC&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+/*--- Base Styles ---------------*/
+
+/* for goole font  */
+.navname{
+    font-family: 'Diplomata SC', cursive;
+    
+}
+*{
+    font-family: 'Merriweather', serif;
+    
+}
+.begin-piture{
+    width: 100%;
+    height: 600px;
+    text-align: center;
+    display: flex;
+}
+
+img{
+    border: none;
+    margin: 10px;
+}
+button{
+    margin: 10px;
+    color: #333333
+}
+
+.content{
+    color: #5CC0FF;
+    font-size: 25px;
+    
+}
+.contenttitle{
+    color: #244B63;
+}
+.title{
+    
+    margin: 20px
+}
+
+
+
+
+
+
+
+
+/* font-color #5CC0FF
+head #244B63 */
+
+
+/*--- Header ---------------*/
+#site-main-nav ul li {
+    display: inline-block;
+    list-style-type: none;
+    text-align: center;
+    width:  9.09%;
+    font-size: 16px;
+    color: #5CC0FF;  
+}
+#site-main-nav ul li a {
+    width: 100%;
+    
+    display: block;
+    justify-content: center;
+    align-items: center;
+    color: #5CC0FF;
+    
+}
+#mobile-navigation{
+    
+    display: inline;
+    color: #5CC0FF; 
+    
+}
+#site-main-nav ul li a:hover {
+    text-decoration: none;
+    border-bottom: none;
+    background: #4A7FF0;
+
+}
+
+.high-light {
+    color: #5CC0FF;
+}
+
+.fa-brands{
+    color: #5CC0FF;
+}
+/*--- Mobile Navigation ---------------*/
+.dropdown-menu{
+    text-align: center
+}
+#logo-tagline-container{
+    position: relative;
+}
+
+#mobile-navigation{
+    position: absolute;
+    top: 9px;
+    right: 0;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333333;
+    /* display: none; */
+}
+
+#mobile-navigation:hover{
+    color: #244B63;
+}
+.fa-user{
+    color: #007bff;
+}
+    
+
+/* begin content */
+
+@media only all and (min-width: 767px) {
+
+   
+}
+#main-home-img {
+    background-image: url('../images/home1.jpg');
+    background-position: center center;
+    background-size: cover;
+    width: 100%
+}
+
+#main-home-img-content {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+@media only all and (max-width: 767px) {
+    #main-home-img-content {
+        padding: 20px;
+    }
+    #menuinfo{
+        font-size: 10px;
+        color: aliceblue;
+        margin:30px;
+       
+    }
+    .footer-div{
+        text-align: center
+    }
+    section{
+        text-align: center;
+    }
+    #space{
+        display: none;
+    }
+   
+}
+@media only all and (min-width: 991px) {
+    .dropdown-menu{
+        display: none;
+    }
+    .container-fluid{
+        text-align: center
+    }
+    #logo{
+        display: none;
+        
+    }
+    .account-info{
+        width: 150px;
+        
+    }
+    
+   
+    
+}
+
+
+/* service content */
+.service{
+    text-align: center
+
+}
+
+/* steps */
+.card-body{
+    background-color: #244B63;
+    color: white;
+    text-align: center
+}
+.card-body:hover{
+    -webkit-filter: drop-shadow(10px 10px 10px 10px rgba(0,0,0,.5));
+    /* filter:drop-shadow(10px 10px 10px 10px rgba(0,0,0,.5)); */
+    transition: all 0.5s
+}
+.card-img{
+    text-align: center;
+    width: 100%;
+}
+
+.card-img img{
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.steps{
+    width: 100%;
+    height: 150px;
+    padding-right: 20px
+}
+.steps:hover{
+    -webkit-filter: drop-shadow(10px 10px 10px rgba(0,0,0,.5));
+    filter:drop-shadow(10px 10px 10px rgba(0,0,0,.5));
+    transition: all 0.5s
+}
+
+
+/* link-page */
+#information-jpg{
+    background-image: url('../images/Image -7.jpg');
+    background-position: center center;
+    background-size: cover;
+    
+}
+#information-jpg1{
+    background-image: url('../images/homepage-1.jpg');
+    background-position: center center;
+    background-size: cover;
+    
+}
+#information-jpg2{
+    background-image: url('../images/menu1.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+#information-bg{
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+#information{
+    text-align: center
+}
+#information-button{
+    margin-top:30px 
+}
+
+/* other webesit */
+.linkjpg{
+    object-fit:contain;
+    width: 100%;
+    height: 150px;
+   
+   
+}
+/* menu */
+
+#menuinfo{
+    font-size: 20px;
+    color: aliceblue;
+    margin:30px;
+   
+}
+#sofamenu{
+    background-color: #FDCD62
+
+}
+.menu1{
+    background-color: #FDCD62;
+    border: none;
+}
+#sofamenu1{
+background-color: #244B63
+
+}
+.menu2{
+    background-color: #244B63;
+    border: none;
+}
+.productlistcard{
+    margin: 0;
+    padding: 0;
+
+}
+#menubegin{
+    background-image: url(../images/menu1.jpg);
+    background-size: cover;
+}
+
+
+
+/* productlist */
+
+#Productlistbegin{
+    background-image: url(../images/furniture.jpg);
+    background-size: 100%,100%;
+
+}
+#productlistinfo{
+    font-size: 20px;
+    color: aliceblue;
+    margin:20px;
+    
+}
+.productlist{
+    width: 150px;
+    height: 200px
+}
+
+
+/* account */
+
+#loadinfo{
+   
+    font-size:20px;
+}
+.account-info{
+    width: 250px;
+    
+}
+.accountinfosection{
+    padding: 0px;
+}
+@media only all and (max-width: 993px) {
+    
+    .account-info{
+        width: 150px;
+        
+    }
+    
+   
+    
+}
+
+#page-333 ul{
+    padding-left: 0;
+}
+
+#page-333 li{
+    
+   
+    padding: 5px 20px;
+    list-style-type: none;
+}
+
+#page-333 li:hover{
+    cursor: pointer;
+    background: #d7d7d7;
+}
+
+/*--- Footer ---------------*/
+
+.footer-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* appointment-page */
+.appointmentfont{
+    font-size: 50px
+}
+.footer-color{
+    background-color:#244B63
+}
+.normal{
+    color: white
+}
+.footer-section{
+    padding: 30px;
+}
+
+
+
+
+/* professor's css */
+/* The styles for the elements */
+
+label {
+    float: left;
+    width: 7em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+input[type="text"], input[type="email"] {  /* An attribute selector */
+    width: 15em;
+    margin-left: 0.5em;    
+    margin-bottom: 0.5em;
+}
+
+br {
+    clear: both;
+}
+
+
+
+
+
+
+
+
+
+

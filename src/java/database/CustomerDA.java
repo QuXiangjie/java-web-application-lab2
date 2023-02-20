@@ -2,6 +2,7 @@ package database;
 
 import domain.Customer;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class CustomerDA {
 
@@ -25,6 +26,8 @@ public class CustomerDA {
         c1.setFirstName("XIANGJIE");
         c1.setLastName("QU");
         c1.setPhoneNum(5551312);
+        c1.setUserID("Cust1");
+        c1.setPassword("cust1");
         add(c1);
 
         Customer c2;
@@ -33,7 +36,20 @@ public class CustomerDA {
         c2.setFirstName("JACK");
         c2.setLastName("QU");
         c2.setPhoneNum(6661312);
+       c2.setUserID("Cust2");
+        c2.setPassword("cust2");
         add(c2);
+        
+         Customer c3;
+        c3 = new Customer();
+        c3.setCustomerID(1003);
+        c3.setFirstName("Anthony");
+        c3.setLastName("Tang");
+        c3.setPhoneNum(7771312);
+        c3.setUserID("Cust3");
+        c3.setPassword("cust3");
+        
+        add(c3);
 
     }
 }
