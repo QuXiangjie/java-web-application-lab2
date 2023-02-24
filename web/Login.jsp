@@ -14,6 +14,18 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <form action="LoginServlet" method="post">
+        <input type="hidden" name="option" value="login">  
+        
+        <label class="pad_top">ID</label>
+        <input type="text" name="UserID" required><br>
+        
+        <label class="pad_top">Password</label>
+        <input type="text" name="Password" required><br>
+        
+        <input type="submit" value="Login in" class="margin_left">
+        
+    </form>
         
     </body>
 </html>

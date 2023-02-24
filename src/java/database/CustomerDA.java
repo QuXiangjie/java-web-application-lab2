@@ -18,6 +18,18 @@ public class CustomerDA {
         return customer;
     }
 
+    public Customer getCustomer(ArrayList <Customer> customers,String userId) {
+       
+
+        for (Customer customer1 : customers) {
+            if (customer1.getUserID().equals(userId)) {
+                System.out.println("there is an user");
+                return customer1;
+            }
+        }
+        return null;
+    }
+
     public static void initialize() {
         //set up inital instance into the table
         Customer c1;
@@ -36,11 +48,11 @@ public class CustomerDA {
         c2.setFirstName("JACK");
         c2.setLastName("QU");
         c2.setPhoneNum(6661312);
-       c2.setUserID("Cust2");
+        c2.setUserID("Cust2");
         c2.setPassword("cust2");
         add(c2);
-        
-         Customer c3;
+
+        Customer c3;
         c3 = new Customer();
         c3.setCustomerID(1003);
         c3.setFirstName("Anthony");
@@ -48,7 +60,7 @@ public class CustomerDA {
         c3.setPhoneNum(7771312);
         c3.setUserID("Cust3");
         c3.setPassword("cust3");
-        
+
         add(c3);
 
     }

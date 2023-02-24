@@ -1,17 +1,28 @@
-
 package domain;
 
 import database.CustomerDA;
 import java.util.ArrayList;
+import java.util.*;
+import java.io.Serializable;
 
+public class Customer implements Serializable {
 
-public class Customer {
     private int customerID;
     private String firstName;
     private String lastName;
     private long phoneNum;
     private String UserID;
     private String Password;
+
+    public Customer() {
+        customerID = 0;
+        firstName = "";
+        lastName = "";
+        phoneNum = 0;
+        UserID = "";
+        Password = "";
+
+    }
 
     public String getUserID() {
         return UserID;
@@ -28,26 +39,30 @@ public class Customer {
     public void setPassword(String Password) {
         this.Password = Password;
     }
-    
-    public void add(){
-      CustomerDA.add(this);
-      
-    };
-    public static ArrayList<Customer>getCustomer(){
-       return CustomerDA.getCustomers();
+
+    public void add() {
+        CustomerDA.add(this);
+
     }
-    public static void initialize(){
-           CustomerDA.initialize();
+
+    ;
+    public static ArrayList<Customer> getCustomer() {
+        return CustomerDA.getCustomers();
     }
-    public String toString(){
-        
-    return getCustomerID()+"    "+getFirstName();
-            }
+
+    public static void initialize() {
+        CustomerDA.initialize();
+    }
+
+    public String toString() {
+
+        return getCustomerID() + "    " + getFirstName();
+    }
 
     public int getCustomerID() {
         return customerID;
     }
-    
+
     public String getFirstName() {
         return firstName;
     }
@@ -75,5 +90,5 @@ public class Customer {
     public void setPhoneNum(long phoneNum) {
         this.phoneNum = phoneNum;
     }
-    
+
 }
