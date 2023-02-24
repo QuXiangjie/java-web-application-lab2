@@ -27,15 +27,23 @@ public class LoginServlet extends HttpServlet {
             // get parameters from the request
             String UserID = request.getParameter("UserID");
             String Password = request.getParameter("Password");
-            // set User object in request object and set URL
-            ArrayList<Customer> customers = CustomerDA.getCustomers();
-            System.out.println(customers);
-            CustomerDA customerDA = new CustomerDA(); // Create an instance of the data access class
-            Customer customer = customerDA.getCustomer(customers, UserID); // Retrieve the customer with the given user ID
-            HttpSession session = request.getSession();
-            session.setAttribute("cutomer", customer);
 
-            url = "/welcome.jsp";   // the "welcome" page
+// set User object in request object and set URL
+            CustomerDA customerDA = new CustomerDA(); // Create an instance of the data access class
+            customerDA.initialize();
+            ArrayList<Customer> customers = CustomerDA.getCustomers();
+            
+            System.out.println(UserID);
+            System.out.println(customers);
+            Customer customer = customerDA.getCustomer(customers, UserID); // Retrieve the customer with the given user ID
+            if (customer != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("customer", customer);
+                url = "/welcome.jsp";   // the "welcome" page
+            } else {
+                url = "/Login.jsp";
+            }
+
         }
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
