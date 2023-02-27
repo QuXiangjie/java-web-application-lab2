@@ -12,15 +12,23 @@
         <title>JSP Page</title>
     </head>
     <body>
-       <p>Here is the information that you entered:</p>
+        <p>Here is the information that you entered:</p>
 
-       
-    <label>User id:</label>
-    <span>${customer.firstName}</span><br>
-    <label>First Name:</label>
-<!--    <span>${customer.getFirstName()}</span><br>-->
-    
 
-   
+        <label>User FirstName:</label>
+        <span>${customer.firstName}</span><br>
+        <label>Info</label>
+        <span>customerID:</span>
+        <span>${customer.customerID}</span><br>
+        <span>customerID:</span>
+        <span>${customer.lastName}</span><br>
+        <span>customer phoneNum:</span>
+        <span>${customer.phoneNum}</span><br>
+        <span>customer UserID</span>
+        <span>${customer.UserID}</span><br>
+
+
+
+
     </body>
 </html>

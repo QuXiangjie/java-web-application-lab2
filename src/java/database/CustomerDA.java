@@ -18,12 +18,12 @@ public class CustomerDA {
         return customer;
     }
 
-    public Customer getCustomer(ArrayList <Customer> customers,String userId) {
+    public Customer getCustomer(ArrayList <Customer> customers,String userId,String password) {
        
 
         for (Customer customer1 : customers) {
             if (customer1.getUserID().equals(userId)) {
-                System.out.println("there is an user");
+                if(customer1.getPassword().equals(password))
                 return customer1;
             }
         }

@@ -16,7 +16,8 @@ public class LoginServlet extends HttpServlet {
         String url = "/Login.jsp";
         // get current action
         String option = request.getParameter("option");
-
+        
+       
         if (option == null) {
             option = "join";  // default action
         }
@@ -24,6 +25,7 @@ public class LoginServlet extends HttpServlet {
         if (option.equals("join")) {
             url = "/Login.jsp";
         } else if (option.equals("login")) {
+            try{
             // get parameters from the request
             String UserID = request.getParameter("UserID");
             String Password = request.getParameter("Password");
@@ -32,16 +34,17 @@ public class LoginServlet extends HttpServlet {
             CustomerDA customerDA = new CustomerDA(); // Create an instance of the data access class
             customerDA.initialize();
             ArrayList<Customer> customers = CustomerDA.getCustomers();
-            
-            System.out.println(UserID);
-            System.out.println(customers);
-            Customer customer = customerDA.getCustomer(customers, UserID); // Retrieve the customer with the given user ID
+            Customer customer = customerDA.getCustomer(customers, UserID,Password); // Retrieve the customer with the given user ID
             if (customer != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("customer", customer);
                 url = "/welcome.jsp";   // the "welcome" page
             } else {
                 url = "/Login.jsp";
+            }
+            }catch(RecordNoFoundException e){
+              request.setAttribute("errirNessage",e.getMessage());
+              request.getRequestDispatcher("login.jsp").forward(request, response);
             }
 
         }
