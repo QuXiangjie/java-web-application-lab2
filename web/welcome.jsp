@@ -15,17 +15,16 @@
         <p>Here is the information that you entered:</p>
 
 
-        <label>User FirstName:</label>
+        <label>User First Name:</label>
         <span>${customer.firstName}</span><br>
         <label>Info</label>
-        <span>customerID:</span>
+        <span>customer ID:</span>
         <span>${customer.customerID}</span><br>
-        <span>customerID:</span>
+        <span>customer ID:</span>
         <span>${customer.lastName}</span><br>
-        <span>customer phoneNum:</span>
+        <span>customer phone:</span>
         <span>${customer.phoneNum}</span><br>
-        <span>customer UserID</span>
-        <span>${customer.UserID}</span><br>
+        
 
 
 
