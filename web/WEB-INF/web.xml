@@ -4,9 +4,17 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>servlets.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DisplayAccountServlet</servlet-name>
+        <servlet-class>servlets.DisplayAccountServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayAccountServlet</servlet-name>
+        <url-pattern>/DisplayAccountServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

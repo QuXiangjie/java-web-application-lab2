@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 public class AccountDA {
 
     private static ArrayList<Account> account = new ArrayList<Account>(20);
+    public static ArrayList<Account> accountFind = new ArrayList<Account>();
 
     public static void add(Account a) {
         account.add(a);
@@ -15,6 +16,23 @@ public class AccountDA {
 
     public static ArrayList<Account> getAccounts() {
         return account;
+    }
+
+    /**
+     *
+     * @param customerID
+     * @return
+     */
+    public static ArrayList<Account> findAccount(int customerID) {
+
+        for (Account account1 : account) {
+            if (account1 != null && account1.getCustomerID() == customerID) {
+                accountFind.add(account1);
+                System.out.println("this is accountfIND");
+            }
+        }
+   
+        return accountFind;
     }
 
     public static void initialize() {

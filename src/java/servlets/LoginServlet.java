@@ -35,11 +35,12 @@ public class LoginServlet extends HttpServlet {
             CustomerDA customerDA = new CustomerDA(); // Create an instance of the data access class
             customerDA.initialize();
             Customer customer = customerDA.findCustomer(UserID);
+            System.out.println(customer+"customer in the loginsevlet");
 
             try {
                 if (customer != null) {
                     if (Password.equals( customer.getPassword())) {
-                        System.out.println("this is password");
+                        
                         HttpSession session = request.getSession();
                         session.setAttribute("customer", customer);
                         url = "/welcome.jsp";   // the "welcome" page

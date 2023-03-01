@@ -1,5 +1,6 @@
 package domain;
 
+import database.*;
 import java.util.ArrayList;
 
 public class BankingSystem {
@@ -13,6 +14,8 @@ public class BankingSystem {
         Customer.initialize();
         Account.initialize();
         Transaction.initialize();
+        
+       
 
         //customer is an arraylist.
         for (x = 0; x < customer.size(); x++) {

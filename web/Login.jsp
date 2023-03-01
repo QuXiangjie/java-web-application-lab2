@@ -18,10 +18,10 @@
             <input type="hidden" name="option" value="login">  
 
             <label class="pad_top">ID</label>
-            <input type="text" name="UserID" required><br>
+            <input type="text" name="UserID" required value="Cust1"><br>
 
             <label class="pad_top">Password</label>
-            <input type="text" name="Password" required><br>
+            <input type="text" name="Password" required value="cust1"><br>
 
             <input type="submit" value="Login in" class="margin_left">
 

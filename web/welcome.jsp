@@ -24,7 +24,22 @@
         <span>${customer.lastName}</span><br>
         <span>customer phone:</span>
         <span>${customer.phoneNum}</span><br>
-        
+
+        <label>You have two options here:</label> <br>
+        <form action="DisplayAccountServlet" method="POST">
+            <input type="hidden" name="option" value ="accounts"/>
+            <input type = "submit" value = "Show accounts"/>
+            <br>
+
+        </form>
+        <form action="DisplayAccountServlet" method="POST">
+            <input type="hidden" name="option" value ="logout"/>
+            <input type = "submit" value = "Logout"/>
+        </form>
+
+
+
+
 
 
 
