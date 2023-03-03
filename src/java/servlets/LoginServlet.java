@@ -12,6 +12,15 @@ import java.util.ArrayList;
 
 public class LoginServlet extends HttpServlet {
 
+    private CustomerDA customerDA;
+
+    public void init() throws ServletException {
+        System.out.println("this is login init");
+        customerDA = new CustomerDA();
+        customerDA.initialize();
+
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -32,15 +41,13 @@ public class LoginServlet extends HttpServlet {
             String Password = request.getParameter("Password");
 
             // set User object in request object and set URL
-            CustomerDA customerDA = new CustomerDA(); // Create an instance of the data access class
-            customerDA.initialize();
             Customer customer = customerDA.findCustomer(UserID);
-            System.out.println(customer+"customer in the loginsevlet");
+            System.out.println(customer + "customer in the loginsevlet");
 
             try {
                 if (customer != null) {
-                    if (Password.equals( customer.getPassword())) {
-                        
+                    if (Password.equals(customer.getPassword())) {
+
                         HttpSession session = request.getSession();
                         session.setAttribute("customer", customer);
                         url = "/welcome.jsp";   // the "welcome" page
@@ -56,7 +63,7 @@ public class LoginServlet extends HttpServlet {
                 String error_notmatch = "Can not match the password";
                 session.setAttribute("Error", error_notmatch);// i don't know how to return the error to the page
             }
-            
+
             try {
                 if (customer == null) {
                     url = "/Error.jsp";
