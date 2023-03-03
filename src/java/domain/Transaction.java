@@ -32,7 +32,11 @@ public class Transaction {
     public static ArrayList<Transaction> getTransaction() {
         return TransactionDA.getTransaction();
     }
-
+    public static Transaction find(String accountNumber){
+        return TransactionDA.find(accountNumber);
+    }
+   
+         
     public static void initialize() {
         TransactionDA.initialize();
     }

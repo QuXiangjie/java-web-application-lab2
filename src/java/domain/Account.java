@@ -39,15 +39,22 @@ public abstract class Account {
     }
 
     public int getbalance() {
+        System.out.println("getbalance");
+                
         ArrayList<Transaction> transaction = Transaction.getTransaction();
+        System.out.println(transaction);
         int i, sum;
         sum = 0;
         for (i = 0; i < transaction.size(); i++) {
+            
             if (this.accountNumber == transaction.get(i).getAccountNumber()) {
+                System.out.println("this is transaction"+transaction.get(i).getTransactionAmount());
                 sum = sum + transaction.get(i).getTransactionAmount();
             }
 
         }
+        
+//         <input type="hidden" name="productCode" value="<c:out value='${item.code}'/>">
         return sum;
 
     }

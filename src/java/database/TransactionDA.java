@@ -9,12 +9,25 @@ import java.time.format.DateTimeFormatter;
 public class TransactionDA {
 
     private static ArrayList<Transaction> transaction = new ArrayList<Transaction>(20);
+    public static ArrayList<Transaction> transactionFind = new ArrayList<Transaction>();
 
     public static void add(Transaction t) {
         transaction.add(t);
     }
 
+    public static ArrayList<Transaction> findTransaction(String accountNumber) {
+        transaction.clear();
+        for (int i = 0; i < transaction.size(); i++) {
+            if (accountNumber.equals(transaction.get(i).getAccountNumber())) {
+                return transaction.get(i);
+            }
+        }
+        return null;
+    }
+
     public static ArrayList<Transaction> getTransaction() {
+        transaction.clear();
+        initialize();
         return transaction;
     }
 

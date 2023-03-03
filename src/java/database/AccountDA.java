@@ -26,14 +26,13 @@ public class AccountDA {
      * @return
      */
     public static ArrayList<Account> findAccount(int customerID) {
-
+        accountFind.clear(); // Clear any previously added accounts
         for (Account account1 : account) {
             if (account1 != null && account1.getCustomerID() == customerID) {
                 accountFind.add(account1);
                 System.out.println("this is accountfIND");
             }
         }
-
         return accountFind;
     }
 
@@ -50,12 +49,11 @@ public class AccountDA {
             add(a3);
             add(a4);
             init = true;
-        }else {
+        } else {
         }
 
     }
+  
 
-    public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }

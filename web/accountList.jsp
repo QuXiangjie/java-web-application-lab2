@@ -12,15 +12,35 @@
         <title>Account list</title>
     </head>
     <body>
-        <h1>Hello </h1>
-    <c:forEach var="item" items="${accounts}">
-        
-        <tr>
-            <td>${item.customerID}</td>
-            <!--<td class = "right"></td>-->
-        </tr>
-    </c:forEach>
+        <h1>${item.customerID}</h1>
+        <p>Here are your account</p>
+
+        <table>
+            <tr>
+                <th>Number</th>
+                <th class="right">Name</th>
+                <th >balance</th>
+
+                <th >show transaction</th>
+            </tr>
+            <c:forEach var="item" items="${accounts}">
+                <tr>
+                    <td>${item.accountNumber}</td>
+                    <td >${item.accountName}</td>
+                    <td><c:out value="${item.getbalance()}"/></td>
+                    <td>
+                        <form action="DisplayTransactionServlet" method="post">
+                            <input type="hidden" name="option" value="showtranscation">
+                            <input type="hidden" name="transactionnumber" value="<c:out value='${item.accountNumber}'/>">
+                            <input type="submit" value="Show transcation">
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
 
 
-</body>
+
+
+    </body>
 </html>
