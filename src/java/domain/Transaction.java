@@ -32,17 +32,17 @@ public class Transaction {
     public static ArrayList<Transaction> getTransaction() {
         return TransactionDA.getTransaction();
     }
-    public static Transaction find(String accountNumber){
-        return TransactionDA.find(accountNumber);
+
+    public static ArrayList<Transaction> find(int accountNumber) {
+        return TransactionDA.findTransaction(accountNumber);
     }
-   
-         
+
     public static void initialize() {
         TransactionDA.initialize();
     }
 
     public String toString() {
-        return getTransactionID() + "    "+getTransactionDate() + "    " +getAccountNumber() + "    " +getDescription() + "    "  + getTransactionAmount();
+        return getTransactionID() + "    " + getTransactionDate() + "    " + getAccountNumber() + "    " + getDescription() + "    " + getTransactionAmount();
     }
 
     public int getTransactionID() {

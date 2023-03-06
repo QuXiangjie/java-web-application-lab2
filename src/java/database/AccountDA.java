@@ -30,7 +30,7 @@ public class AccountDA {
         for (Account account1 : account) {
             if (account1 != null && account1.getCustomerID() == customerID) {
                 accountFind.add(account1);
-                System.out.println("this is accountfIND");
+               
             }
         }
         return accountFind;

@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
                         session.setAttribute("customer", customer);
                         url = "/welcome.jsp";   // the "welcome" page
                     } else {
-                        url = "/Error.jsp";
+                        url = "/Login.jsp";
 
                         throw new RecordNoFoundException();
                     }
@@ -66,7 +66,7 @@ public class LoginServlet extends HttpServlet {
 
             try {
                 if (customer == null) {
-                    url = "/Error.jsp";
+                    url = "/Login.jsp";
                     throw new RecordNoFoundException();
                 }
             } catch (RecordNoFoundException e) {

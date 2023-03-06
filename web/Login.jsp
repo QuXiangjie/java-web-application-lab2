@@ -3,7 +3,7 @@
     Created on : Feb 15, 2023, 9:23:40 AM
     Author     : 0837099
 --%>
-
+<link rel="stylesheet" href="Styles/maincss.css" type="text/css"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,9 +24,19 @@
             <input type="text" name="Password" required value="cust1"><br>
 
             <input type="submit" value="Login in" class="margin_left">
+            <%
+                String errorMessage = (String) request.getSession().getAttribute("Error");
+                if (errorMessage != null) {
+            %>
+            <div class="error"><%= errorMessage%></div>
+            <%
+                    request.getSession().removeAttribute("Error");
+                }
+            %>
 
-           
-            
+
+
+
 
         </form>
 

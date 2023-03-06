@@ -3,7 +3,7 @@
     Created on : Feb 24, 2023, 9:22:50 AM
     Author     : 0837099
 --%>
-
+<link rel="stylesheet" href="Styles/maincss.css" type="text/css"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

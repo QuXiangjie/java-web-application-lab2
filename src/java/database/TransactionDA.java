@@ -15,14 +15,17 @@ public class TransactionDA {
         transaction.add(t);
     }
 
-    public static ArrayList<Transaction> findTransaction(String accountNumber) {
-        transaction.clear();
-        for (int i = 0; i < transaction.size(); i++) {
-            if (accountNumber.equals(transaction.get(i).getAccountNumber())) {
-                return transaction.get(i);
+    public static ArrayList<Transaction> findTransaction(int accountNumber) {
+        transactionFind.clear();
+        for (Transaction transaction1 : transaction) {
+            if (transaction1 != null && transaction1.getAccountNumber() == accountNumber) {
+                transactionFind.add(transaction1);
+                
+              
+
             }
         }
-        return null;
+        return transactionFind;
     }
 
     public static ArrayList<Transaction> getTransaction() {

@@ -38,6 +38,7 @@ public class DisplayAccountServlet extends HttpServlet {
             HttpSession session = request.getSession();
             Customer customer = (Customer) session.getAttribute("customer");
             ArrayList<Account> accounts = accountDA.findAccount(customer.getCustomerID());
+
             session.setAttribute("accounts", accounts);
 
         }

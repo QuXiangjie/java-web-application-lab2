@@ -26,9 +26,22 @@ table {
 }
 th, td {
     border: 1px solid black;
-    text-align: left;
+    text-align: center;
     padding: .5em;
 }
+
 .right {
     text-align: right;
 }
+
+
+
+
+
+/*error*/
+.error {
+    color: red;
+    font-weight: bold;
+    margin: 10px 0;
+}
+

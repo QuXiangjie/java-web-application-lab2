@@ -26,9 +26,16 @@ public class DisplayTransactionServlet extends HttpServlet {
             url = "/accountList.jsp";
         } else if (option.equals("showtranscation")) {
             String accountNumber = request.getParameter("accountNumber");
-            Transaction transaction = Transaction.find(accountNumber);
-            HttpSession session = request.getSession();
-            session.setAttribute("transactions", transaction);
+            System.out.println("this is accountNumber"+accountNumber);
+            if (accountNumber != null) {
+                int accountNumber1 = Integer.parseInt(accountNumber);
+                ArrayList<Transaction> transaction = Transaction.find(accountNumber1);
+                HttpSession session = request.getSession();
+                session.setAttribute("transactions", transaction);
+                System.out.println("this is the transaction find in attribute");
+            } else {
+                // handle case where accountNumber is null
+            }
 
         }
 
