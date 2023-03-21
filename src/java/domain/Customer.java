@@ -41,17 +41,20 @@ public class Customer implements Serializable {
     }
 
     public void add() {
-        CustomerDA.add(this);
+        CustomerDA customerDA=new CustomerDA(){};
+        customerDA.add(this);
 
     }
 
     ;
     public static ArrayList<Customer> getCustomer() {
-        return CustomerDA.getCustomers();
+        CustomerDA customerDA=new CustomerDA(){};
+        return customerDA.getCustomers();
     }
 
     public static void initialize() {
-        CustomerDA.initialize();
+        CustomerDA customerDA=new CustomerDA(){};
+        customerDA.initialize();
     }
 
     public String toString() {

@@ -9,6 +9,15 @@ public abstract class Account {
     private int customerID;   //this is a foreign from customer!!! no solve now
     private String accountName;
     private String dateOpened;
+    private String accountType;
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
     
 
     public Account() {
@@ -22,14 +31,17 @@ public abstract class Account {
     }
 
     public void add() {
+        AccountDA AccountDA=new AccountDA(){};
         AccountDA.add(this);
     }
 
     public static ArrayList<Account> getAccounts() {
+        AccountDA AccountDA=new AccountDA(){};
         return AccountDA.getAccounts();
     }
 
     public static void initialize() {
+        AccountDA AccountDA=new AccountDA(){};
         AccountDA.initialize();
     }
 

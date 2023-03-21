@@ -33,6 +33,9 @@
                 </tr>
             </c:forEach>
         </table>
+        <h1>here is the running balances(which also shows in the account choose page):${balance}</h1>
+
+
         <form action="DisplayTransactionServlet" method="post">
             <input type="hidden" name="option" value="backaccount">
             <input type="submit" value="Back">

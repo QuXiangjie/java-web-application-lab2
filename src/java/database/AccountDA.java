@@ -1,59 +1,91 @@
 package database;
 
 import domain.*;
+import database.DatabaseConnection;
+import java.sql.*;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class AccountDA {
-
-    private static boolean init = false;
-
-    private static ArrayList<Account> account = new ArrayList<Account>(20);
-    public static ArrayList<Account> accountFind = new ArrayList<Account>();
-
-    public static void add(Account a) {
-        account.add(a);
-    }
-
-    public static ArrayList<Account> getAccounts() {
-        return account;
-    }
-
-    /**
-     *
-     * @param customerID
-     * @return
-     */
-    public static ArrayList<Account> findAccount(int customerID) {
-        accountFind.clear(); // Clear any previously added accounts
-        for (Account account1 : account) {
-            if (account1 != null && account1.getCustomerID() == customerID) {
-                accountFind.add(account1);
-               
+    Connection connection = DatabaseConnection.getInstance().getConnection();
+    public  void initialize() {
+        try {
+            Account account = null;
+            
+            Statement statement = connection.createStatement();
+            ResultSet rs;
+            String sql = "Select * "
+                    + "from Account";
+            rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                account = new Account() {
+                };
+                account.setAccountNumber(rs.getInt(1));
+                account.setCustomerID(rs.getInt(2));
+                account.setAccountName(rs.getString(3));
+                account.setDateOpened(rs.getString(4));
+                account.setAccountType(rs.getString(5));
+                account.add();
             }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        return accountFind;
+    }
+    
+    public  void add(Account a) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO Account (AccountNumber, CustomerID, AccountName, DateOpened, AccountType) VALUES (?, ?, ?, ?, ?)");
+            statement.setInt(1, a.getAccountNumber());
+            statement.setInt(2, a.getCustomerID());
+            statement.setString(3, a.getAccountName());
+            statement.setString(4, a.getDateOpened());
+            statement.setString(5, a.getAccountType());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public static void initialize() {
-        if (init == false) {
-            Account a1, a2, a3, a4;
-            a1 = new AssetAccount(10001, 1001, "1-1-ac", "1-31-23", 0.5, 0.5);
-            a2 = new AssetAccount(10002, 1002, "1-2-ac", "1-31-23", 0.5, 0.5);
-            //int accountNumber, int customerID, String accountName, String dateOpened,double interestRate, double monthlyPayment, String paymentDate
-            a3 = new LiabilityAccount(20001, 1001, "2-1-ac", "1-31-23", 0.5, 0.5, "2-4-23");
-            a4 = new LiabilityAccount(20002, 1002, "2-2-ac", "1-31-23", 0.5, 0.5, "2-4-23");
-            add(a1);
-            add(a2);
-            add(a3);
-            add(a4);
-            init = true;
-        } else {
+    public  ArrayList<Account> getAccounts() {
+        ArrayList<Account> accounts = new ArrayList<Account>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM Account");
+            while (rs.next()) {
+                Account account = new Account() {};
+                account.setAccountNumber(rs.getInt("AccountNumber"));
+                account.setCustomerID(rs.getInt("CustomerID"));
+                account.setAccountName(rs.getString("AccountName"));
+                account.setDateOpened(rs.getString("DateOpened"));
+                account.setAccountType(rs.getString("AccountType"));
+                accounts.add(account);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
-
+        return accounts;
     }
-  
 
-   
+    public  ArrayList<Account> findAccount(int customerID) {
+        ArrayList<Account> accounts = new ArrayList<Account>();
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Account WHERE CustomerID = ?");
+            statement.setInt(1, customerID);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Account account = new Account() {};
+                account.setAccountNumber(rs.getInt("AccountNumber"));
+                account.setCustomerID(rs.getInt("CustomerID"));
+                account.setAccountName(rs.getString("AccountName"));
+                account.setDateOpened(rs.getString("DateOpened"));
+                account.setAccountType(rs.getString("AccountType"));
+                accounts.add(account);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return accounts;
+    }
 }
+

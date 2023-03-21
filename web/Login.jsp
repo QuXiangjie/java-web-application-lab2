@@ -17,10 +17,10 @@
         <form action="LoginServlet" method="post">
             <input type="hidden" name="option" value="login">  
 
-            <label class="pad_top">ID</label>
+            <label class="pad_top">ID(Cust1,Cust2)</label>
             <input type="text" name="UserID" required value="Cust1"><br>
 
-            <label class="pad_top">Password</label>
+            <label class="pad_top">Password(cust1,cust2)</label>
             <input type="text" name="Password" required value="cust1"><br>
 
             <input type="submit" value="Login in" class="margin_left">

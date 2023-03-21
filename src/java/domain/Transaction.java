@@ -15,26 +15,30 @@ public class Transaction {
     }
 
     public Transaction(int transactionID, String transactionDate, int accountNumber, String description, int transactionAmount) {
-        this.accountNumber = accountNumber;
+        
         this.transactionID = transactionID;
         this.transactionDate = transactionDate;
-        this.accountNumber = accountNumber;   //this is a foreign from customer!!! no solve now
+        this.accountNumber = accountNumber;
+        
         this.description = description;
         this.transactionAmount = transactionAmount;
     }
 
     public void add() {
-        TransactionDA.add(this);
+        TransactionDA transactionDA = new TransactionDA();
+        transactionDA.add(this);
 
     }
 
     ;
     public static ArrayList<Transaction> getTransaction() {
-        return TransactionDA.getTransaction();
+        TransactionDA transactionDA = new TransactionDA();
+        return transactionDA.getTransaction();
     }
 
     public static ArrayList<Transaction> find(int accountNumber) {
-        return TransactionDA.findTransaction(accountNumber);
+        TransactionDA transactionDA = new TransactionDA();
+        return transactionDA.findTransaction(accountNumber);
     }
 
     public static void initialize() {

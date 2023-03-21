@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/src/java/database/TransactionDA.sql</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/src/java/servlets/LoginServlet.java</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/src/java/database/CustomerDA.java</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/src/java/domain/Account.java</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/src/java/database/TransactionDA.java</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/src/java/servlets/DisplayAccountServlet.java</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/src/java/database/CustomerDA.sql</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/web/transactionlist.jsp</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/src/java/database/AccountDA.java</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/src/java/database/AccountDA.sql</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/web/accountList.jsp</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/src/java/database/total.sql</file>
+            <file>file:/C:/Users/0837099/Desktop/New%20folder/java-web-application-lab2/src/java/servlets/DisplayTransactionServlet.java</file>
+        </group>
     </open-files>
 </project-private>

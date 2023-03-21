@@ -1,76 +1,106 @@
 package database;
 
+import domain.Account;
 import domain.Customer;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 public class CustomerDA {
 
-    private static boolean init = false;
+    Connection connection = DatabaseConnection.getInstance().getConnection();
 
-    private static ArrayList<Customer> customer = new ArrayList<Customer>(10);
-    //static, everything in the daclass should be class level
-    //customer is the name of arraylist
+    public void initialize() {
 
-    public static void add(Customer c) {
-        customer.add(c);
+        try {
+            Customer customer = null;
+
+            Statement statement = connection.createStatement();
+            ResultSet rs;
+            String sql = "Select * "
+                    + "from Customer";
+            rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                customer = new Customer();
+                customer.setCustomerID(rs.getInt(1));
+                customer.setFirstName(rs.getString(2));
+                customer.setLastName(rs.getString(3));
+                customer.setPhoneNum(rs.getLong(4));
+                customer.setUserID(rs.getString(5));
+                customer.setPassword(rs.getString(6));
+
+                customer.add();
+
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
-    public static ArrayList<Customer> getCustomers() {
-        return customer;
+    public void add(Customer c) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO Customer (customerID, firstName, lastName, phoneNum, UserID, Password) VALUES (?, ?, ?, ?, ?,?)");
+            statement.setInt(1, c.getCustomerID());
+            statement.setString(2, c.getFirstName());
+            statement.setString(3, c.getLastName());
+            statement.setLong(4, c.getPhoneNum());
+            statement.setString(5, c.getUserID());
+            statement.setString(6, c.getPassword());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public ArrayList<Customer> getCustomers() {
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM Customer");
+            while (rs.next()) {
+                Customer customer = new Customer();
+                customer.setCustomerID(rs.getInt(1));
+                customer.setFirstName(rs.getString(2));
+                customer.setLastName(rs.getString(3));
+                customer.setPhoneNum(rs.getLong(4));
+                customer.setUserID(rs.getString(5));
+                customer.setPassword(rs.getString(6));
+                customers.add(customer);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return customers;
     }
 
     public Customer findCustomer(String userId) {
-
-        for (Customer customer1 : customer) {
-            if (customer1.getUserID().equals(userId)) {
-
-                return customer1;
-            }
+    Customer customer = new Customer();
+    System.out.println("this is login customerfinded");
+    try {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM Customer WHERE UserID = ?");
+        statement.setString(1, userId);
+        ResultSet rs = statement.executeQuery();
+        while(rs.next()){
+        customer.setCustomerID(rs.getInt(1));
+        customer.setFirstName(rs.getString(2));
+        customer.setLastName(rs.getString(3));
+        customer.setPhoneNum(rs.getLong(4));
+        customer.setUserID(rs.getString(5));
+        customer.setPassword(rs.getString(6));
         }
-        return null;
+        
+        System.out.println("this is login customerfinded");
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
     }
+    return customer;
+}
 
-    public static void initialize() {
-        if (init == false) {
-            //set up inital instance into the table
-            Customer c1;
-            c1 = new Customer();
-            c1.setCustomerID(1001);
-            c1.setFirstName("XIANGJIE");
-            c1.setLastName("QU");
-            c1.setPhoneNum(5551312);
-            c1.setUserID("Cust1");
-            c1.setPassword("cust1");
-            add(c1);
-
-            Customer c2;
-            c2 = new Customer();
-            c2.setCustomerID(1002);
-            c2.setFirstName("JACK");
-            c2.setLastName("QU");
-            c2.setPhoneNum(6661312);
-            c2.setUserID("Cust2");
-            c2.setPassword("cust2");
-            add(c2);
-
-            Customer c3;
-            c3 = new Customer();
-            c3.setCustomerID(1003);
-            c3.setFirstName("Anthony");
-            c3.setLastName("Tang");
-            c3.setPhoneNum(7771312);
-            c3.setUserID("Cust3");
-            c3.setPassword("cust3");
-
-            add(c3);
-            init = true;
-        } else {
-        }
-
-    }
-
-    public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
